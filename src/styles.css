@@ -207,5 +207,6 @@
   .animate-float-soft,
   .animate-shimmer,
   .animate-fade-up { animation: none !important; }
+  .page-transition { animation: none !important; filter: none !important; }
   html { scroll-behavior: auto; }
 }
