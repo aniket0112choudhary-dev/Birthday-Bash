@@ -38,6 +38,14 @@ function Balloon({ body, shine }: { body: string; shine: string }) {
   );
 }
 
+const PATHS = ["float-up-a", "float-up-b", "float-up-c", "float-up-d"];
+const EASINGS = [
+  "cubic-bezier(.45,.05,.55,.95)",
+  "cubic-bezier(.4,.1,.6,.9)",
+  "linear",
+  "cubic-bezier(.5,0,.5,1)",
+];
+
 export function FlyingBalloons({ count = 14 }: { count?: number }) {
   const items = useMemo(
     () =>
@@ -46,11 +54,13 @@ export function FlyingBalloons({ count = 14 }: { count?: number }) {
         return {
           id: i,
           left: Math.random() * 100,
-          delay: Math.random() * 18,
-          duration: 18 + Math.random() * 16,
-          size: 38 + Math.random() * 38,
-          drift: (Math.random() - 0.5) * 140,
-          sway: 3 + Math.random() * 4,
+          delay: Math.random() * 22,
+          duration: 16 + Math.random() * 28,
+          size: 34 + Math.random() * 44,
+          drift: (Math.random() - 0.5) * 260,
+          sway: 2.5 + Math.random() * 5,
+          path: PATHS[Math.floor(Math.random() * PATHS.length)],
+          easing: EASINGS[Math.floor(Math.random() * EASINGS.length)],
           ...palette,
         };
       }),
@@ -65,14 +75,13 @@ export function FlyingBalloons({ count = 14 }: { count?: number }) {
       {items.map((b) => (
         <span
           key={b.id}
-          className="absolute animate-float-up"
+          className="absolute"
           style={{
             left: `${b.left}%`,
-            bottom: "-120px",
+            bottom: "-140px",
             width: `${b.size}px`,
             height: `${b.size * 1.5}px`,
-            animationDelay: `${b.delay}s`,
-            animationDuration: `${b.duration}s`,
+            animation: `${b.path} ${b.duration}s ${b.easing} ${b.delay}s infinite`,
             ["--drift" as never]: `${b.drift}px`,
           }}
         >
