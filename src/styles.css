@@ -123,10 +123,10 @@
 }
 
 @keyframes float-up {
-  0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.8; }
-  90% { opacity: 0.8; }
-  100% { transform: translateY(-10vh) translateX(40px) rotate(360deg); opacity: 0; }
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-110vh) translateX(var(--drift, 40px)) rotate(20deg); opacity: 0; }
 }
 @keyframes float-soft {
   0%, 100% { transform: translateY(0px); }

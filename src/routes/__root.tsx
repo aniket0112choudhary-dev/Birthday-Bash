@@ -7,8 +7,46 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Heart } from "lucide-react";
+import { FlyingBalloons } from "@/components/FlyingBalloons";
 
 import appCss from "../styles.css?url";
+
+const NAV = [
+  { to: "/", label: "Home" },
+  { to: "/letter", label: "Letter" },
+  { to: "/memories", label: "Memories" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/wish", label: "Make a Wish" },
+] as const;
+
+function SiteHeader() {
+  return (
+    <header className="sticky top-0 z-50 border-b border-rose/20 bg-background/70 backdrop-blur-xl">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+        <Link to="/" className="flex items-center gap-2 font-script text-2xl text-primary">
+          <Heart className="h-4 w-4 fill-current" /> For Mom
+        </Link>
+        <ul className="flex flex-wrap items-center gap-1 text-sm">
+          {NAV.map((item) => (
+            <li key={item.to}>
+              <Link
+                to={item.to}
+                activeOptions={{ exact: true }}
+                activeProps={{ className: "bg-gradient-rose text-primary-foreground shadow-soft" }}
+                inactiveProps={{ className: "text-foreground/70 hover:text-primary hover:bg-rose/10" }}
+                className="rounded-full px-3 py-1.5 transition"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
 
 function NotFoundComponent() {
   return (
@@ -114,6 +152,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <FlyingBalloons count={16} />
+      <SiteHeader />
       <Outlet />
     </QueryClientProvider>
   );
