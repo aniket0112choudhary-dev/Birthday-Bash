@@ -141,6 +141,11 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes balloon-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
 .animate-float-up { animation: float-up linear infinite; }
 .animate-float-soft { animation: float-soft 6s ease-in-out infinite; }
 .animate-shimmer { animation: shimmer 3s ease-in-out infinite; }
