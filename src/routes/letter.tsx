@@ -25,9 +25,14 @@ function LetterPage() {
             wouldn't have enough. You are the quiet music behind every good day of my life.
           </p>
           <p>
-            Thank you for the small things — the cups of tea, the late-night calls,
-            the way you remember <em>everything</em> I forget. Thank you for the big
-            things too: your courage, your patience, your endless, endless love.
+            You have always been the quiet strength behind every happy
+            moment in my life. Your love feels like warm sunlight after a long day, comforting
+           and constant in ways words can never fully explain. The care in your voice, the
+            patience in your hands, and the way you always put everyone before yourself make
+            our home feel complete. Even in difficult times, you stand like a calm light guiding 
+            our family forward. I may not say it every day, but your love is the reason so many of
+            my smiles exist. Thank you for being my safe place, my support, and the heart of 
+            our family. ❤️
           </p>
           <p className="font-script text-3xl text-primary">I love you, today and always.</p>
         </div>
