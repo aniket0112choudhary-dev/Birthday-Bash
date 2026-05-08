@@ -51,13 +51,18 @@ export function FlyingBalloons({ count = 14 }: { count?: number }) {
     () =>
       Array.from({ length: count }).map((_, i) => {
         const palette = PALETTES[Math.floor(Math.random() * PALETTES.length)];
+        // Keep balloons in left/right edge bands so they don't sit over text.
+        const onLeft = Math.random() < 0.5;
+        const left = onLeft ? Math.random() * 18 : 82 + Math.random() * 18;
+        // Drift outward (away from center) so they leave the page edge.
+        const drift = (onLeft ? -1 : 1) * (60 + Math.random() * 140);
         return {
           id: i,
-          left: Math.random() * 100,
+          left,
           delay: Math.random() * 22,
           duration: 16 + Math.random() * 28,
-          size: 34 + Math.random() * 44,
-          drift: (Math.random() - 0.5) * 260,
+          size: 32 + Math.random() * 38,
+          drift,
           sway: 2.5 + Math.random() * 5,
           path: PATHS[Math.floor(Math.random() * PATHS.length)],
           easing: EASINGS[Math.floor(Math.random() * EASINGS.length)],
@@ -67,9 +72,10 @@ export function FlyingBalloons({ count = 14 }: { count?: number }) {
     [count]
   );
 
+
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-40 overflow-hidden"
+      className="balloon-layer pointer-events-none fixed inset-0 z-30 overflow-hidden"
       aria-hidden="true"
     >
       {items.map((b) => (
@@ -83,6 +89,7 @@ export function FlyingBalloons({ count = 14 }: { count?: number }) {
             height: `${b.size * 1.5}px`,
             animation: `${b.path} ${b.duration}s ${b.easing} ${b.delay}s infinite`,
             ["--drift" as never]: `${b.drift}px`,
+            ["--rm-delay" as never]: `${b.delay * 0.3}s`,
           }}
         >
           <span
