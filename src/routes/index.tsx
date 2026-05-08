@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, Sparkles, Wand2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroFlowers from "@/assets/hero-flowers.jpg";
+import { HomeDecorations } from "@/components/HomeDecorations";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,6 +25,7 @@ function HomePage() {
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover opacity-60 mix-blend-multiply"
       />
+      <HomeDecorations />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 py-20 text-center animate-fade-up">
         <div className="inline-flex items-center gap-2 rounded-full border border-rose/30 bg-card/60 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-primary backdrop-blur">
