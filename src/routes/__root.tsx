@@ -120,8 +120,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Happy Birthday, Mom — A Letter in Bloom" },
       { name: "twitter:description", content: "A heartfelt birthday celebration for the woman who taught us love. Memories, wishes, and Beautiful letter to express our love." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/acf7c4d0-043b-4378-a829-ef7d7aaf33ea/id-preview-7cceb4fc--78d957f6-7089-4aac-9b4f-33ceae480bce.lovable.app-1778244287212.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/acf7c4d0-043b-4378-a829-ef7d7aaf33ea/id-preview-7cceb4fc--78d957f6-7089-4aac-9b4f-33ceae480bce.lovable.app-1778244287212.png" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/84cc2545-4e7a-4c7a-8a30-6ebe1be888ff" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/84cc2545-4e7a-4c7a-8a30-6ebe1be888ff" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
