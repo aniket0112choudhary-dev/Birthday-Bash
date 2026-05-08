@@ -178,3 +178,26 @@
 .animate-float-soft { animation: float-soft 6s ease-in-out infinite; }
 .animate-shimmer { animation: shimmer 3s ease-in-out infinite; }
 .animate-fade-up { animation: fade-up 0.8s ease-out both; }
+
+/* Reduced motion: stop drifting balloons, swap to a gentle fade pulse */
+@keyframes balloon-fade {
+  0%, 100% { opacity: 0; }
+  50%      { opacity: 0.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .balloon-layer span,
+  .balloon-layer span > span {
+    animation: none !important;
+    transform: none !important;
+  }
+  .balloon-layer > span {
+    bottom: auto !important;
+    top: 12%;
+    animation: balloon-fade 7s ease-in-out infinite !important;
+    animation-delay: var(--rm-delay, 0s) !important;
+  }
+  .animate-float-soft,
+  .animate-shimmer,
+  .animate-fade-up { animation: none !important; }
+  html { scroll-behavior: auto; }
+}

@@ -89,6 +89,7 @@ export function FlyingBalloons({ count = 14 }: { count?: number }) {
             height: `${b.size * 1.5}px`,
             animation: `${b.path} ${b.duration}s ${b.easing} ${b.delay}s infinite`,
             ["--drift" as never]: `${b.drift}px`,
+            ["--rm-delay" as never]: `${b.delay * 0.3}s`,
           }}
         >
           <span
