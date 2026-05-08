@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 import { Heart } from "lucide-react";
 import { FlyingBalloons } from "@/components/FlyingBalloons";
+import { BirthdayMusic } from "@/components/BirthdayMusic";
+import { PageTransition } from "@/components/PageTransition";
 
 import appCss from "../styles.css?url";
 
@@ -154,7 +156,8 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <FlyingBalloons count={16} />
       <SiteHeader />
-      <Outlet />
+      <PageTransition />
+      <BirthdayMusic />
     </QueryClientProvider>
   );
 }
